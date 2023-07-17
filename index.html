@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    
+    
+    <div class="container">      
+      <form method="post" id="form">
+        <h1>Form Validation</h1>
+        <div class="name form-input">
+          <label> Full Name </label>
+          <input type="text" placeholder="Enter Name" required id="fullname"/>
+          <div class="error"></div>
+        </div>
+        
+        <div class="phone form-input">
+          <label> Phone No. </label>
+          <input type="tel" placeholder="123-4567-890" required id="phone"/>
+          <div class="error"></div>
+        </div>
+       
+        <div class="email form-input">
+          <label> Email Id </label>
+          <input type="email" placeholder="xyz@gmail.com" required id="email"/>
+          <div class="error"></div>
+        </div>
+        
+        <div class="password form-input">
+          <label> Password </label>
+          <input type="password"     
+            placeholder="Enter password"
+            required id="password1"
+          ></input>
+          <div class="error"></div>
+        </div>
+        
+        <div class="password form-input">
+          <label> Confirm Password </label>
+          <input type="password"           
+            placeholder="Confirm password"
+            required id="password2"
+          ></input>
+          <div class="error"></div>
+        </div>
+        
+        <button type="submit" class="sub-btn" >Submit</button>
+      
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
