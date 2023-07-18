@@ -6,12 +6,13 @@ const password1 = document.getElementById("password1");
 const password2 = document.getElementById("password2");
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
+  e.preventDefault(); //prevent the form from being submitted and the page from being refreshed
 
   validateInputs();
 });
 
 const setError = (element, message) => {
+  //element - input element for which the error message should be displayed, message - message to be displayed
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector(".error");
 
@@ -35,7 +36,7 @@ const isValidEmail = (email) => {
   return re.test(String(email).toLowerCase());
 };
 /*const isValidPassword1 = (password1) => {
-  const re = /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$/;
+  const re = /^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*[!#$%&? "]).*$/;
   return re.test(String(phone));
 };*/
 const validateInputs = () => {
@@ -47,6 +48,8 @@ const validateInputs = () => {
 
   if (fullnameValue === "") {
     setError(fullname, "Username is required");
+  } else if (fullnameValue.length < 5) {
+    setError(fullname, "Name must not be less than 5 characters");
   } else {
     setSuccess(fullname);
   }
@@ -67,6 +70,10 @@ const validateInputs = () => {
 
   if (password1Value === "") {
     setError(password1, "Password is required");
+  } else if (password1Value === fullnameValue) {
+    setError(password1, "Password and Name entered can't be equal");
+  } else if (password1Value === "password") {
+    setError(password1, "Password can't be a 'password'");
   } else if (password1Value.length < 8) {
     setError(password1, "Password must be at least 8 characters ");
   } else {
@@ -80,4 +87,10 @@ const validateInputs = () => {
   } else {
     setSuccess(password2);
   }
+
+  /*form.submit();
+
+  setTimeout(() => {
+    location.reload();
+  }, 10000);*/
 };
